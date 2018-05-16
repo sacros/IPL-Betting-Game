@@ -40,18 +40,19 @@ footer {
   /* background: #42b983; */
   background: rgb(10, 50, 130);
   color: white;
-  padding:20px;
-  position: fixed;
+  padding:10px;
+  /* position: fixed; */
   width: 100%;
   bottom: 0;
 }
 header {
-  margin-top: 20px;
+  /* margin-top: 20px; */
   /* background: #42b983; */
   background: rgb(127, 154, 208);
   color: white;
-  padding:20px;
+  padding: 10px;
   /* position: fixed; */
   width: 100%;
+  top: 0;
 }
 </style>

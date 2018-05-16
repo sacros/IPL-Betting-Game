@@ -15,7 +15,7 @@ contract IPLGame is Mortal {
     mapping(uint=>string) public result;
 
     // Events
-    event Winner(address indexed winner, uint amount);
+    event Winner(uint indexed matchId, address indexed winner, uint amount);
     event BetPlaced(address indexed bettor, uint indexed matchId, string team, uint amount);
     event ResultSet(uint indexed matchId, string winningTeamId, string losingTeamId);
     event Winners(uint indexed matchId, address[] winners);
@@ -60,7 +60,7 @@ contract IPLGame is Mortal {
         for (i = 0; i < winners.length; i++) {
             uint transferAmount = ((toDistribute/total)+1)*betAmount[_matchId][winners[i]];
             winners[i].transfer(transferAmount);
-            emit Winner(winners[i], transferAmount-betAmount[_matchId][winners[i]]);
+            emit Winner(_matchId, winners[i], transferAmount-betAmount[_matchId][winners[i]]);
         }
         currentGame++;
     }

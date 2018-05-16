@@ -1,8 +1,9 @@
 <template>
 <div>
     <h1>
-        Make your bets bruv
+        Make your bets here
     </h1>
+    
     <div>
         <button id="match" v-for="currentGame in currentGames" @click="setOptions(currentGame)">{{currentGame | match}}</button>
     </div>
@@ -13,13 +14,14 @@
     </div>
     <span>Your balance: {{bettor_balance}} finney</span>
     <div id="inner" style="margin-top:8%;">
-    <select v-model="selected_team">
+    <span>Team</span><select v-model="selected_team">
     <!-- <option value="Select a match">Select a match</option> -->
     <option v-for="option in options" v-bind:value="option">
         {{ option }}
     </option>
-    </select>
-    <input v-model="bet_amount" placeholder="Entr amount to bet" />(in finney)
+    </select><br><br><br>
+    <span>Amount to Bet</span>
+    <input v-model="bet_amount" placeholder="Entr amount to bet" />(in finney)<br><br><br>
     <button @click="makeBet">Make bet</button>
     <div id="bet_ratio">Betting Ratio: {{options[0]}} {{placed_team_one}} {{options[1]}} {{placed_team_two}}</div>
     </div>
@@ -34,8 +36,8 @@ export default {
   data () {
     return {
       currentGames: [
-          {'match_id': 1, 'team_one': 'CSK', 'team_two': 'DD', 'date': '17/05/2018'},
-          {'match_id': 2, 'team_one': 'SRH', 'team_two': 'KXIP', 'date': '17/05/2018'}
+          {'match_id': 1, 'team_one': 'MI', 'team_two': 'KXIP', 'date': '17/05/2018'},
+          {'match_id': 2, 'team_one': 'RCB', 'team_two': 'SRH', 'date': '18/05/2018'}
       ],
       options: ['Select team', 'Select team'],
       selected_team: null,
@@ -48,7 +50,7 @@ export default {
   },
   filters: {
     match (game) {
-      return `${game.date} -> ${game.team_one} vs ${game.team_two}`
+      return `Match #${game.match_id}: ${game.date} -> ${game.team_one} vs ${game.team_two}`
     }
   },
   beforeCreate: function () {

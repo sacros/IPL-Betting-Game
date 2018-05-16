@@ -153,6 +153,73 @@ const IPLGame = {
         reject(err)
       })
     })
+  },
+
+  // resultSetEvent: function () {
+  //   let self = this
+
+  //   return new Promise((resolve, reject) => {
+  //     self.instance.ResultSet({}, {fromBlock: 0, toBlock: 'latest'}).get((tx) => {
+  //       resolve(tx)
+  //     })
+  //   })
+  // },
+
+  winnerEvent: function (address) {
+    let self = this
+    return new Promise((resolve, reject) => {
+      console.log('at winnerEvent')
+      var eventWinner = self.instance.Winner({winner: address})
+      eventWinner.get((err, res) => {
+        if (err) {
+          reject(err)
+        } else {
+          resolve(res)
+        }
+      })
+    })
+  },
+  resultsEvent: function (matchId) {
+    let self = this
+    return new Promise((resolve, reject) => {
+      console.log('at winnerEvent')
+      var eventWinner = self.instance.ResultSet({matchId: matchId})
+      eventWinner.get((err, res) => {
+        if (err) {
+          reject(err)
+        } else {
+          resolve(res)
+        }
+      })
+    })
+  },
+  winnersEvent: function (matchId) {
+    let self = this
+    return new Promise((resolve, reject) => {
+      console.log('at winnerEvent')
+      var eventWinner = self.instance.Winners({matchId: matchId})
+      eventWinner.get((err, res) => {
+        if (err) {
+          reject(err)
+        } else {
+          resolve(res)
+        }
+      })
+    })
+  },
+  losersEvent: function (matchId) {
+    let self = this
+    return new Promise((resolve, reject) => {
+      console.log('at winnerEvent')
+      var eventWinner = self.instance.Losers({matchId: matchId})
+      eventWinner.get((err, res) => {
+        if (err) {
+          reject(err)
+        } else {
+          resolve(res)
+        }
+      })
+    })
   }
 }
 
