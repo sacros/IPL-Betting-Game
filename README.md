@@ -157,3 +157,30 @@ Also, the system can also charge commission from the total amount to be distribu
 1.	The system can implement betting odds. 
 
 _In the blockchain space, an oracle is a party which provides data. The need for such figure arise from the fact that blockchain applications, such as Bitcoin scripts and smart contracts cannot access and fetch directly the data they require: price feeds for assets and financial applications; weather-related information for peer-to-peer insurance; random number generation for gambling._
+
+<h1>How to run:</h1>
+
+1. Clone the project
+
+    `git clone https://github.com/sacros/IPL-Betting-Game.git`
+
+2. Install dependencies
+
+    `npm install`
+
+3. Start [ganache](http://truffleframework.com/ganache/).
+
+4. Compile the contract
+
+    `truffle compile `
+
+5. Migrate the contract
+
+    `truffle migrate`
+
+6. Start vue app
+
+    `npm run start`
+
+7. Interact with the app on `localhost:8000`
+
